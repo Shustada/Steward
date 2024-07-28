@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Steward{% endblock %}
+
+{% block content %}
+    <h1>Contact Steward</h1>
+    
+    <div class="form-container">
+        <h2>Submit Feedback</h2>
+        <form method="post" class="feedback-form">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ feedback_form.feedback_type.label_tag }}
+                {{ feedback_form.feedback_type }}
+            </div>
+            <div class="form-group">
+                {{ feedback_form.content.label_tag }}
+                {{ feedback_form.content }}
+            </div>
+            <div class="form-group">
+                {{ feedback_form.private.label_tag }}
+                {{ feedback_form.private }}
+            </div>
+            <div class="form-group">
+                <label for="anonymous">Submit as Anonymous</label>
+                <input type="checkbox" id="anonymous" name="anonymous">
+            </div>
+            <button type="submit" class="btn-submit">Submit</button>
+        </form>
+    </div>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 40px auto;
+            border: 1px solid #ddd;
+        }
+        .feedback-form .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .feedback-form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .feedback-form input[type="text"],
+        .feedback-form textarea,
+        .feedback-form select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-top: 5px;
+        }
+        .feedback-form .form-check-input {
+            width: auto;
+            margin-left: 10px;
+        }
+        .btn-submit {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .btn-submit:hover {
+            background-color: #45a049;
+        }
+    </style>
+{% endblock %}

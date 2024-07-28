@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Steward Dashboard{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        header nav ul li {
+            margin-right: 20px;
+        }
+        header nav ul li a, header nav ul li form button {
+            color: white;
+            text-decoration: none;
+        }
+        header nav ul li form button {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            font: inherit;
+            margin: 0;
+            padding: 0;
+        }
+        .main-container {
+            display: flex;
+            flex: 1;
+        }
+        .sidebar {
+            background-color: #f4f4f4;
+            border-right: 1px solid #ddd;
+            width: 200px;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            height: calc(100vh - 60px); /* adjust for header height */
+            position: fixed;
+            top: 60px; /* align with header height */
+        }
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar nav ul li {
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .sidebar nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .content {
+            flex: 1;
+            margin-left: 200px; /* same width as sidebar */
+            padding: 20px;
+            overflow-y: auto;
+            margin-top: 60px; /* align with header height */
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="{% url 'home' %}" style="color: white; text-decoration: none; font-weight: bold;">Steward Dashboard</a>
+        </div>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    <li>
+                        <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit">Logout</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'steward_login' %}">Login</a></li>
+                    <li><a href="{% url 'steward_signup' %}">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <div class="main-container">
+        {% if user.is_authenticated %}
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'steward_dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'view_worker_submissions' %}">Worker Submissions</a></li>
+                    <li><a href="{% url 'manage_workers' %}">Manage Workers</a></li>
+                    <li><a href="{% url 'generate_reports' %}">Reports</a></li>
+                    <li><a href="{% url 'post_announcements' %}">Announcements</a></li>
+                    <li><a href="{% url 'steward_settings' %}">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+        {% endif %}
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Steward Dashboard. All rights reserved.</p>
+    </footer>
+</body>
+</html>

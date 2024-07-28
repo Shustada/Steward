@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block title %}Worker Resources{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">Worker Resources</h1>
+    <div class="resources-container">
+        <h2>Labor Laws and Regulations</h2>
+        <ul class="resources-list">
+            <li><a href="https://www.dol.gov/agencies/whd/flsa" target="_blank">Fair Labor Standards Act (FLSA)</a></li>
+            <li><a href="https://www.osha.gov/laws-regs" target="_blank">Occupational Safety and Health Act (OSHA)</a></li>
+            <li><a href="https://www.dol.gov/agencies/whd/fmla" target="_blank">Family and Medical Leave Act (FMLA)</a></li>
+            <li><a href="https://www.nlrb.gov/about-nlrb/rights-we-protect/the-law" target="_blank">National Labor Relations Act (NLRA)</a></li>
+        </ul>
+
+        <h2>Worker Rights</h2>
+        <ul class="resources-list">
+            <li><a href="https://www.dol.gov/general/topic/wages/minimumwage" target="_blank">Minimum Wage Laws</a></li>
+            <li><a href="https://www.dol.gov/agencies/whd/overtime" target="_blank">Overtime Pay</a></li>
+            <li><a href="https://www.osha.gov/workers" target="_blank">Safe Working Conditions</a></li>
+            <li><a href="https://www.eeoc.gov/employees" target="_blank">Protection Against Discrimination and Harassment</a></li>
+        </ul>
+
+        <h2>Unions and Collective Bargaining</h2>
+        <ul class="resources-list">
+            <li><a href="https://www.unionplus.org/page/union-member-rights-and-officer-responsibilities-under-the-lmrda" target="_blank">How to Join a Union</a></li>
+            <li><a href="https://www.nlrb.gov/about-nlrb/rights-we-protect/your-rights/union-representation" target="_blank">Rights to Union Representation</a></li>
+            <li><a href="https://www.aflcio.org/what-unions-do/empower-workers" target="_blank">Benefits of Collective Bargaining</a></li>
+        </ul>
+
+        <h2>Health and Safety</h2>
+        <ul class="resources-list">
+            <li><a href="https://www.osha.gov/workers" target="_blank">Workplace Safety Guidelines</a></li>
+            <li><a href="https://www.osha.gov/workers/file-complaint" target="_blank">Reporting Unsafe Conditions</a></li>
+            <li><a href="https://www.healthcare.gov/using-marketplace-coverage/" target="_blank">Access to Healthcare Benefits</a></li>
+        </ul>
+
+        <h2>Job Security and Benefits</h2>
+        <ul class="resources-list">
+            <li><a href="https://www.dol.gov/general/topic/unemployment-insurance" target="_blank">Unemployment Insurance</a></li>
+            <li><a href="https://www.dol.gov/general/topic/workcomp" target="_blank">Workers' Compensation</a></li>
+            <li><a href="https://www.dol.gov/general/topic/retirement" target="_blank">Retirement Benefits</a></li>
+        </ul>
+
+        <h2>Professional Development</h2>
+        <ul class="resources-list">
+            <li><a href="https://www.careeronestop.org/" target="_blank">Training and Certification Programs</a></li>
+            <li><a href="https://www.scholarships.com/" target="_blank">Educational Resources and Scholarships</a></li>
+        </ul>
+
+        <h2>Contacts and Support</h2>
+        <ul class="resources-list">
+            <li><a href="https://www.dol.gov/agencies/whd/contact/local-offices" target="_blank">Contact Information for Local Labor Boards</a></li>
+            <li><a href="https://www.lawhelp.org/" target="_blank">Legal Aid and Worker Advocacy Groups</a></li>
+        </ul>
+    </div>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding-bottom: 60px; /* Ensures content is not cut off by footer */
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .page-title {
+            margin-top: 20px; /* Adjust spacing from the top */
+        }
+        .resources-container {
+            max-width: 800px;
+            margin: 20px auto; /* Add top margin to move it away from the nav */
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .resources-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .resources-list li {
+            margin-bottom: 10px;
+        }
+        .resources-list a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .resources-list a:hover {
+            text-decoration: underline;
+        }
+    </style>
+{% endblock %}

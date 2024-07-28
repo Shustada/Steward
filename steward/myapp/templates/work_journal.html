@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}Work Journal{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">Work Journal</h1>
+    
+    <div class="form-container">
+        <h2 class="section-title">Add New Entry</h2>
+        <form method="post" class="journal-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-submit">Add Entry</button>
+        </form>
+    </div>
+    
+    <div class="journal-entries-container">
+        <h2 class="section-title">Your Entries</h2>
+        <div class="journal-entries">
+            {% for entry in journal_entries %}
+                <div class="journal-entry">
+                    <h3>{{ entry.title }}</h3>
+                    <p><small>{{ entry.date|date:"Y-m-d H:i" }}</small></p>
+                    <p>{{ entry.content }}</p>
+                </div>
+            {% empty %}
+                <p>No entries yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .form-container, .journal-entries-container {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .journal-form .form-group {
+            margin-bottom: 15px;
+        }
+        .journal-form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .journal-form input[type="text"],
+        .journal-form textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        .btn-submit {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            display: block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .btn-submit:hover {
+            background-color: #45a049;
+        }
+        .journal-entries {
+            margin-top: 20px;
+        }
+        .journal-entry {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .journal-entry h3 {
+            margin-top: 0;
+        }
+        .journal-entry p {
+            margin: 10px 0;
+        }
+        .journal-entry small {
+            color: #666;
+        }
+    </style>
+{% endblock %}
