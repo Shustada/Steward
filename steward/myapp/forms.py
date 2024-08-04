@@ -123,7 +123,7 @@ class ProfileForm(forms.ModelForm):
         return work_address
 
     def validate_address(self, address):
-        api_key = 'YOUR_GOOGLE_API_KEY'
+        api_key = 'AIzaSyA_SxDKGSuYaTRIeGfu6d0D3wfq1pKF7as'
         response = requests.get(
             f'https://maps.googleapis.com/maps/api/place/findplacefromtext/json',
             params={

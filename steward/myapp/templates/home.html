@@ -19,6 +19,7 @@
             flex: 1;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
         .login-box {
             background-color: white;
@@ -99,16 +100,8 @@
             margin-top: 10px;
         }
         .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            font-size: 48px;
-            color: white;
-            background-color: #013220;
-            padding: 10px;
-            text-align: center;
-            width: fit-content;
-            margin: auto;
-            border-radius: 10px;
+            width: 150px; /* Adjust the width as needed */
+            margin-bottom: 20px;
         }
     </style>
     <script>
@@ -140,8 +133,8 @@
 <body>
    
     <div class="container">
-        <div class="login-box">
 
+        <div class="login-box">
             <div class="tab">
                 <button class="tablinks" id="WorkerTab" onclick="openTab(event, 'Worker')">Worker</button>
                 <button class="tablinks" id="StewardTab" onclick="openTab(event, 'Steward')">Steward</button>

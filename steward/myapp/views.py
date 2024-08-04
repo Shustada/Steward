@@ -212,9 +212,13 @@ def view_worker_submissions(request):
     # Get the work address for the logged-in steward
     steward_profile = request.user.profile
     steward_work_address = steward_profile.work_address
+
+    print(f"Steward Work Address: {steward_work_address}")
     
     # Fetch feedback submissions for the steward's work address
     feedback_entries = Feedback.objects.filter(work_address=steward_work_address)
+    
+    print(f"Feedback Entries: {feedback_entries}")
     
     context = {
         'feedback_entries': feedback_entries,
